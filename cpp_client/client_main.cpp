@@ -20,14 +20,16 @@ void ReceiveData(GameWorld* gameWorld);
 
 void main()
 {
+    std::print("Decide your name (only in English)");
+    std::string name;
+    cin >> name;
+
     SOCKET sock = connectToServer("127.0.0.1", 5000);
     if (sock == INVALID_SOCKET) return;
     
 
-    Player* playerPtr = new Player(sock, "P1");
-    std::print("Decide your name (only in English)");
-    std::string name;
-    cin >> name;
+    Player* playerPtr = new Player(sock, "P2");
+
     playerPtr->setName(name);
 	GameWorld gameWorld;
 	gameWorld.setLocalPlayer(playerPtr);
@@ -45,6 +47,7 @@ void main()
     closesocket(sock);
     WSACleanup();
 }
+
 
 void ReceiveData( GameWorld*gameWorld )
 {
