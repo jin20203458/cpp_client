@@ -28,9 +28,8 @@ void main()
     if (sock == INVALID_SOCKET) return;
     
 
-    Player* playerPtr = new Player(sock, "P2");
+    Player* playerPtr = new Player(sock, name);
 
-    playerPtr->setName(name);
 	GameWorld gameWorld;
 	gameWorld.setLocalPlayer(playerPtr);
 
