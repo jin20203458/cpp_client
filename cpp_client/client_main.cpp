@@ -25,6 +25,10 @@ void main()
     
 
     Player* playerPtr = new Player(sock, "P1");
+    std::print("Decide your name (only in English)");
+    std::string name;
+    cin >> name;
+    playerPtr->setName(name);
 	GameWorld gameWorld;
 	gameWorld.setLocalPlayer(playerPtr);
 
